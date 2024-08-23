@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Image Generator</title>
-    <link rel="stylesheet" href="styles.css">
+    <link id="stylesheet" rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="dropdown-container">
+        <select id="styleSelector">
+            <option value="styles.css">Default</option>
+            <option value="styles3.css">Simple</option>
+            <option value="styles4.css">Cify</option>
+            <option value="styles5.css">Spicy</option>
+            <option value="styles6.css">Coral dark red</option>
+            <option value="styles7.css">Dark New</option>
+            <option value="styles8.css">Burning Red</option>
+            <option value="styles9.css">IDK</option>
+            <option value="styles1.css">DONOTUSE</option>
+            <option value="styles2.css">NEITHER THIS ONE</option>
+            <option value="styles10.css">THIS IS NOT BETTER</option>
+            <option value="styles11.css">YOU ARE NOT USING THIS ONE</option>
+        </select>
+    </div>
+
     <div class="background"></div>
     <div class="container">
         <div class="tabs">
@@ -34,7 +51,6 @@
                     <div id="loading-progress"></div>
                 </div>
                 <p id="loading-text">Loading... 0%</p>
-                <p id="loading-time" class="hidden">Estimated time left: <span id="time-left">0s</span></p>
             </div>
             <div id="image-container"></div>
         </div>
