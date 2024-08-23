@@ -2,8 +2,6 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
     const prompt = document.getElementById('prompt').value;
     let width = parseInt(document.getElementById('width').value);
     let height = parseInt(document.getElementById('height').value);
-    const seed = document.getElementById('seed').value || Math.floor(Math.random() * 10000);
-    const style = document.getElementById('style').value || 'default';
 
     width = Math.floor(width / 8) * 8;
     height = Math.floor(height / 8) * 8;
@@ -38,21 +36,21 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
             }
         }, 1000);
 
+        const bodyData = {
+            inputs: prompt,
+            parameters: {
+                width: width,
+                height: height
+            }
+        };
+
         const response = await fetch(API_URL, {
             method: "POST",
             headers: {
                 "Authorization": API_KEY,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                inputs: prompt,
-                parameters: {
-                    width: width,
-                    height: height,
-                    seed: seed,
-                    style: style
-                }
-            })
+            body: JSON.stringify(bodyData)
         });
 
         if (!response.ok) {
@@ -105,13 +103,6 @@ function openTab(tabName) {
 
     document.getElementById(tabName).classList.add('active');
     document.querySelector(`.tab-button[onclick="openTab('${tabName}')"]`).classList.add('active');
-}
-
-function toggleAdvancedSettings() {
-    const settings = document.getElementById('advanced-settings');
-    const arrow = document.querySelector('.arrow');
-    settings.classList.toggle('hidden');
-    arrow.style.transform = settings.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
 }
 
 function showImageModal(imageUrl) {
