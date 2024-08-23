@@ -12,17 +12,11 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
     const loadingContainer = document.getElementById('loading-container');
     const loadingProgress = document.getElementById('loading-progress');
     const loadingText = document.getElementById('loading-text');
-    const loadingTime = document.getElementById('loading-time');
-    const timeLeftText = document.getElementById('time-left');
     const imageContainer = document.getElementById('image-container');
 
     try {
         loadingContainer.classList.remove('hidden');
         imageContainer.innerHTML = '';
-
-        let estimatedTime = calculateEstimatedTime(width, height);
-        timeLeftText.textContent = `${estimatedTime}s`;
-        loadingTime.classList.remove('hidden');
 
         let progress = 0;
         let interval = setInterval(() => {
@@ -36,21 +30,19 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
             }
         }, 1000);
 
-        const bodyData = {
-            inputs: prompt,
-            parameters: {
-                width: width,
-                height: height
-            }
-        };
-
         const response = await fetch(API_URL, {
             method: "POST",
             headers: {
                 "Authorization": API_KEY,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(bodyData)
+            body: JSON.stringify({
+                inputs: prompt,
+                parameters: {
+                    width: width,
+                    height: height
+                }
+            })
         });
 
         if (!response.ok) {
@@ -81,10 +73,6 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
     }
 });
 
-function calculateEstimatedTime(width, height) {
-    return Math.max(5, Math.ceil((width * height) / 1000000));
-}
-
 function addToLibrary(imageUrl) {
     const libraryContainer = document.getElementById('library-container');
     const imgElement = document.createElement('img');
@@ -103,6 +91,13 @@ function openTab(tabName) {
 
     document.getElementById(tabName).classList.add('active');
     document.querySelector(`.tab-button[onclick="openTab('${tabName}')"]`).classList.add('active');
+}
+
+function toggleAdvancedSettings() {
+    const settings = document.getElementById('advanced-settings');
+    const arrow = document.querySelector('.arrow');
+    settings.classList.toggle('hidden');
+    arrow.style.transform = settings.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
 }
 
 function showImageModal(imageUrl) {
