@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background: radial-gradient(circle, #1a1a1a, #0d0d0d);
+    color: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.2), rgba(0, 204, 255, 0.2));
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-size: 34px;
+    margin-bottom: 20px;
+    color: #00eaff;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: #ff0081;
+    margin: 15px auto 0;
+    border-radius: 5px;
+    box-shadow: 0 0 15px #ff0081;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    display: block;
+    font-size: 15px;
+    color: #b3b3b3;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #eaeaea;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    box-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+input::placeholder {
+    color: #888;
+}
+
+button {
+    padding: 15px 25px;
+    background: linear-gradient(45deg, #ff0081, #00eaff);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #00eaff, #ff0081);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#loading-container {
+    margin-top: 20px;
+    display: none;
+}
+
+.loading-bar {
+    width: 100%;
+    background-color: #333;
+    height: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#loading-progress {
+    height: 100%;
+    background-color: #00eaff;
+    width: 0;
+    transition: width 0.4s ease;
+}
+
+#loading-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+#image-container img,
+#library-container img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 3px solid #444;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+#image-container img:hover,
+#library-container img:hover {
+    transform: scale(1.05);
+    border-color: #ff0081;
+}
+
+.dropdown-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+select {
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #eaeaea;
+    font-size: 14px;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    max-width: 500px;
+    background: rgba(40, 40, 40, 0.9);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+}
+
+.modal-content {
+    text-align: center;
+    color: #eaeaea;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #fff;
+}

@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background: linear-gradient(to right, #1c1c1c, #2b2b2b);
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(40, 40, 40, 0.9);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #3b3b3b;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ff6f61;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #ff6f61;
+    margin: 15px auto 0;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    display: block;
+    font-size: 15px;
+    color: #b3b3b3;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    box-shadow: 0 0 8px #ff6f61, 0 0 20px #ff6f61;
+    outline: none;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+button {
+    padding: 15px 20px;
+    background: linear-gradient(45deg, #ff6f61, #d56b6b);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #d56b6b, #ff6f61);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#loading-container {
+    margin-top: 15px;
+    display: none;
+}
+
+.loading-bar {
+    width: 100%;
+    background-color: #333;
+    height: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#loading-progress {
+    height: 100%;
+    background-color: #ff6f61;
+    width: 0;
+    transition: width 0.4s ease;
+}
+
+#loading-text {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+#image-container img,
+#library-container img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid #444;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+#image-container img:hover,
+#library-container img:hover {
+    transform: scale(1.05);
+    border-color: #ff6f61;
+}
+
+.dropdown-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+select {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    font-size: 14px;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    max-width: 480px;
+    background: rgba(40, 40, 40, 0.9);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border: 1px solid #3b3b3b;
+    display: none;
+}
+
+.modal-content {
+    text-align: center;
+    color: #e0e0e0;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #fff;
+}

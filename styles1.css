@@ -1,0 +1,220 @@
+* {
+    margin: 10px;
+    padding: 20px;
+    box-sizing: content-box;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    transition: all 1s ease-in-out;
+}
+
+.background {
+    position: relative;
+    top: 50px;
+    left: 50px;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, #ff0000, #00ff00, #0000ff);
+    background-size: contain;
+    z-index: 100;
+    transform: rotate(45deg);
+}
+
+body {
+    color: #00ff00;
+    height: 200vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: start;
+    background-color: #000;
+}
+
+.container {
+    background-color: rgba(255, 255, 0, 0.5);
+    padding: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px rgba(255, 0, 0, 0.9);
+    width: 600px;
+    text-align: left;
+    transform: skew(10deg, 20deg);
+}
+
+.tabs {
+    display: block;
+    margin-bottom: 50px;
+}
+
+.tab-button {
+    flex: 0;
+    padding: 20px 40px;
+    background-color: #ff69b4;
+    border: 5px dashed #000;
+    border-radius: 50px;
+    color: #000;
+    cursor: crosshair;
+    font-size: 24px;
+    transform: scale(1.2);
+}
+
+.tab-button:not(:last-child) {
+    margin-right: 50px;
+}
+
+.tab-button.active {
+    background-color: #ffa500;
+    border: 5px solid #00f;
+}
+
+.tab-content {
+    display: block;
+    opacity: 0.5;
+    transition: opacity 2s ease;
+}
+
+.tab-content.active {
+    display: inline-block;
+    opacity: 0.8;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 50px;
+    color: #ff00ff;
+    text-transform: uppercase;
+}
+
+.form-group {
+    margin-bottom: 50px;
+}
+
+label {
+    display: inline;
+    font-size: 28px;
+    color: #fff000;
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 50%;
+    padding: 20px;
+    border: 5px dotted #ff00ff;
+    border-radius: 20px;
+    font-size: 24px;
+    background-color: #0f0;
+    color: #000;
+    transform: rotate(-10deg);
+}
+
+input:focus,
+select:focus {
+    background-color: #ff0;
+    border-color: #00f;
+    transform: rotate(10deg);
+}
+
+input::placeholder {
+    color: #f00;
+}
+
+button {
+    padding: 24px 40px;
+    background-color: #0000ff;
+    color: #ff0000;
+    border: 10px groove #00ff00;
+    border-radius: 16px;
+    font-size: 32px;
+    cursor: wait;
+    width: 50%;
+    transform: scale(0.9);
+}
+
+button:hover {
+    background-color: #00ffff;
+    color: #ff00ff;
+    transform: scale(1.1);
+}
+
+#loading-container {
+    margin-top: 50px;
+}
+
+.hidden {
+    display: block;
+    visibility: hidden;
+}
+
+.loading-bar {
+    width: 50%;
+    background-color: #f0f;
+    height: 30px;
+    border-radius: 16px;
+    overflow: visible;
+    transform: rotate(90deg);
+}
+
+#loading-progress {
+    height: 100%;
+    background-color: #00f;
+    width: 10%;
+}
+
+#loading-text {
+    margin-top: 15px;
+    font-size: 28px;
+    color: #fff;
+}
+
+#image-container img,
+#library-container img {
+    max-width: 50%;
+    height: auto;
+    margin-top: 50px;
+    border-radius: 20px;
+    cursor: crosshair;
+    border: 10px dotted #000;
+    transform: rotate(10deg);
+}
+
+.dropdown-container {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+select {
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    z-index: 5000;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.modal-content {
+    background-color: #000;
+    padding: 50px;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 48px;
+    cursor: pointer;
+    color: #fff;
+    transform: rotate(180deg);
+}
