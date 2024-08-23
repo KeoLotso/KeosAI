@@ -15,7 +15,6 @@
     background: linear-gradient(to bottom, #4a148c, #000000);
     background-size: cover;
     z-index: -1;
-    transition: background 1s ease;
 }
 
 body {
@@ -33,7 +32,6 @@ body {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     width: 400px;
     text-align: center;
-    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .tabs {
@@ -50,7 +48,6 @@ body {
     color: #ffffff;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
 }
 
 .tab-button:not(:last-child) {
@@ -59,7 +56,6 @@ body {
 
 .tab-button.active {
     background-color: #80d0c7;
-    transform: scale(1.05);
 }
 
 .tab-content {
@@ -91,7 +87,8 @@ label {
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+select {
     width: 100%;
     padding: 10px;
     border: 1px solid #3a3f5c;
@@ -99,10 +96,10 @@ input[type="number"] {
     font-size: 14px;
     background-color: #252845;
     color: #ffffff;
-    transition: background-color 0.3s, border-color 0.3s;
 }
 
-input:focus {
+input:focus,
+select:focus {
     background-color: #333;
     border-color: #80d0c7;
 }
@@ -114,83 +111,66 @@ input::placeholder {
 button {
     padding: 12px 20px;
     background-color: #80d0c7;
-    color: #1d1f27;
+    color: #000;
     border: none;
-    border-radius: 10px;
-    cursor: pointer;
+    border-radius: 8px;
     font-size: 16px;
-    margin-top: 15px;
+    cursor: pointer;
     width: 100%;
-    transition: background-color 0.3s ease, transform 0.3s;
 }
 
 button:hover {
-    background-color: #66b0a9;
-    transform: scale(1.05);
+    background-color: #4a148c;
+    color: #ffffff;
 }
 
 #loading-container {
-    margin-top: 20px;
+    margin-top: 15px;
+}
+
+.hidden {
+    display: none;
 }
 
 .loading-bar {
     width: 100%;
-    background-color: #3a3f5c;
-    border-radius: 10px;
+    background-color: #e0e0e0;
+    height: 15px;
+    border-radius: 8px;
     overflow: hidden;
-    height: 20px;
-    margin-bottom: 10px;
 }
 
 #loading-progress {
-    width: 0%;
     height: 100%;
-    background-color: #80d0c7;
-    transition: width 0.5s ease;
+    background-color: #4a148c;
+    width: 0%;
 }
 
 #loading-text {
+    margin-top: 5px;
     font-size: 14px;
-    color: #ffffff;
+    color: #e0e0e0;
 }
 
-#loading-time {
-    font-size: 14px;
-    color: #cfcfcf;
-}
-
-#image-container {
-    margin-top: 20px;
-}
-
-img {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-top: 10px;
-    border: 3px solid #80d0c7;
-    transition: transform 0.3s ease;
-}
-
-img:hover {
-    transform: scale(1.05);
-}
-
-#library-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
+#image-container img,
 #library-container img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
     border-radius: 10px;
-    transition: transform 0.3s ease;
+    cursor: pointer;
+    border: 2px solid #ffffff;
 }
 
-#library-container img:hover {
-    transform: scale(1.05);
+.dropdown-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .modal {
@@ -199,17 +179,17 @@ img:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.3s ease;
+    z-index: 1000;
 }
 
 .modal-content {
-    background: #333;
+    background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     position: relative;
 }
 
@@ -217,6 +197,6 @@ img:hover {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
 }
