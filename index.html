@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('generate')">Generate</button>
+            <button class="tab-button" onclick="openTab('library')">Library</button>
+        </div>
+
+        <div id="generate" class="tab-content active">
+            <h1>AI Image Generator</h1>
+            <div class="form-group">
+                <label for="prompt">Enter prompt:</label>
+                <input type="text" id="prompt" placeholder="e.g., A panda holding a balloon">
+            </div>
+            <div class="form-group">
+                <label for="width">Enter width:</label>
+                <input type="number" id="width" placeholder="e.g., 1024">
+            </div>
+            <div class="form-group">
+                <label for="height">Enter height:</label>
+                <input type="number" id="height" placeholder="e.g., 768">
+            </div>
+            <div class="form-group advanced-settings">
+                <div class="advanced-settings-header" onclick="toggleAdvancedSettings()">
+                    <span>Advanced Settings</span>
+                    <span class="arrow">&#9660;</span>
+                </div>
+                <div id="advanced-settings" class="hidden">
+                    <div class="form-group">
+                        <label for="seed">Seed (optional):</label>
+                        <input type="number" id="seed" placeholder="e.g., 12345">
+                    </div>
+                    <div class="form-group">
+                        <label for="style">Style (optional):</label>
+                        <select id="style">
+                            <option value="">Default</option>
+                            <option value="style1">Style 1</option>
+                            <option value="style2">Style 2</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button id="generateBtn">Generate Image</button>
+            <div id="loading-container" class="hidden">
+                <div class="loading-bar">
+                    <div id="loading-progress"></div>
+                </div>
+                <p id="loading-text">Loading... 0%</p>
+                <p id="loading-time" class="hidden">Estimated time left: <span id="time-left">0s</span></p>
+            </div>
+            <div id="image-container"></div>
+        </div>
+
+        <div id="library" class="tab-content">
+            <h1>Image Library</h1>
+            <div id="library-container"></div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
