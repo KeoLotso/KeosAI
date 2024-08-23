@@ -87,17 +87,10 @@ function openTab(tabName) {
     const buttons = document.querySelectorAll('.tab-button');
 
     tabs.forEach(tab => tab.classList.remove('active'));
-    buttons.forEach(button => button.classList.remove('active'));
+    buttons.forEach(button => tab.classList.remove('active'));
 
     document.getElementById(tabName).classList.add('active');
     document.querySelector(`.tab-button[onclick="openTab('${tabName}')"]`).classList.add('active');
-}
-
-function toggleAdvancedSettings() {
-    const settings = document.getElementById('advanced-settings');
-    const arrow = document.querySelector('.arrow');
-    settings.classList.toggle('hidden');
-    arrow.style.transform = settings.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
 }
 
 function showImageModal(imageUrl) {
@@ -116,3 +109,8 @@ function showImageModal(imageUrl) {
         document.body.removeChild(modal);
     });
 }
+
+document.getElementById('styleSelector').addEventListener('change', function() {
+    const stylesheet = document.getElementById('stylesheet');
+    stylesheet.href = this.value;
+});
