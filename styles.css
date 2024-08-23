@@ -6,7 +6,6 @@
     transition: all 0.3s ease;
 }
 
-
 .background {
     position: fixed;
     top: 0;
@@ -92,8 +91,7 @@ label {
 }
 
 input[type="text"],
-input[type="number"],
-select {
+input[type="number"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #3a3f5c;
@@ -104,8 +102,7 @@ select {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-input:focus,
-select:focus {
+input:focus {
     background-color: #333;
     border-color: #80d0c7;
 }
@@ -194,52 +191,6 @@ img:hover {
 
 #library-container img:hover {
     transform: scale(1.05);
-}
-
-.advanced-settings {
-    margin-top: 15px;
-    border-top: 1px solid #3a3f5c;
-    padding-top: 15px;
-    transition: max-height 0.5s ease;
-    overflow: hidden;
-}
-
-.advanced-settings-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.advanced-settings-header:hover {
-    color: #80d0c7;
-}
-
-.arrow {
-    transition: transform 0.3s ease;
-}
-
-.hidden {
-    display: none;
-}
-
-#advanced-settings.hidden {
-    max-height: 0;
-    padding: 0;
-}
-
-#advanced-settings:not(.hidden) {
-    max-height: 500px;
-    padding-top: 15px;
-}
-
-input#customStyle {
-    display: none;
-}
-
-select#style option[value="custom"]:checked ~ #customStyle {
-    display: block;
 }
 
 .modal {
