@@ -6,6 +6,7 @@
     transition: all 0.3s ease;
 }
 
+
 .background {
     position: fixed;
     top: 0;
@@ -231,6 +232,14 @@ img:hover {
 #advanced-settings:not(.hidden) {
     max-height: 500px;
     padding-top: 15px;
+}
+
+input#customStyle {
+    display: none;
+}
+
+select#style option[value="custom"]:checked ~ #customStyle {
+    display: block;
 }
 
 .modal {
